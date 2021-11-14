@@ -23,27 +23,51 @@
 .description__btns{
     width: 350px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
-    padding: 45px 0;
+    padding: 45px 0 10px 0;
 }
 .description__btn{
+    border-radius: 50% 0%;
     width: 125px;
-    height: 50px;
+    height: 80px;
     border: none;
-    background: none;
+    background-color: #BED01C;
     font-size: 18px;
-    color: #486E2F;
+    color:#3A3185;
+    font-weight: 700;
     cursor: pointer;
-    border: 1px solid #486E2F;
-    border-radius: 25px;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 5px;
-    transition: 0.7s;
+    transition: 1s;
 }
 .description__btn:hover{
-    background-color: #486E2F;
-    color: #fff;
+    animation: btn-entry 10s;
 }
+
+@keyframes btn-entry{
+    0%{
+        border-radius: 50% 0%;
+    }
+    15%{
+        border-radius: 75% 25% 35% 25%;
+    }
+    35%{
+        border-radius: 25% 75% 50% 75%;
+    }
+    50%{
+        border-radius: 100% 30% 75% 25%;;
+    }
+    65%{
+        border-radius: 25% 75% 50% 75%;
+    }
+    80%{
+        border-radius: 75% 25% 35% 25%;
+    }
+    100%{
+        border-radius: 50% 0%;
+    }
+}
+
