@@ -1,0 +1,36 @@
+.container{
+    max-width:1110px;
+    margin: 0 auto;
+    padding: 0 5px;
+}
+.header{
+    width: 100%;
+    background-color: #E8F8DC;
+    box-shadow: 1px 4px 24px rgba(0, 0, 0, 0.25);
+}
+.header__nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+}
+.nav__btns{
+    width: 230px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav__btn{
+    padding: 15px;
+    background: none;
+    border: 1px solid #3A3185;
+    border-radius: 25px;
+    font-size: 14px;
+    color: #3A3185;
+    cursor: pointer;
+    transition: 0.7s;
+}
+.nav__btn:hover{
+    background-color: #3A3185;
+    color: #fff;
+}
