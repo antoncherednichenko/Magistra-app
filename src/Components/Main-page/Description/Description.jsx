@@ -4,11 +4,11 @@ import './description.css'
 export default function Description() {
     return (
         <div className='description'>
-            <div className='description__wrapper'>
+            {/* <div className='description__wrapper'>
                 <img className='description__img' src='../../../img/icons/magistra-logo.svg' alt='Логотип центра Магистра'/>
-            </div>
+            </div> */}
             <p className='description__description'>
-            Это дополнительное образование для детей и взрослых по специальным программам,
+            Дополнительное образование для детей и взрослых по специальным программам,
             которые разработаны нашими специалистами.
             </p>
             <div className='description__btns-wrapper'>

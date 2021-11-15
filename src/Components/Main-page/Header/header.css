@@ -34,3 +34,7 @@
     background-color: #3A3185;
     color: #fff;
 }
+.nav__link img{
+    width: 125px;
+    height: 65px;
+}
