@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import s from './header.module.css'
 
 export default function Header(){
@@ -7,9 +8,10 @@ export default function Header(){
         <>
             <header className={s.header}>
                 <div className={`${s.container} ${s.flexContainer}`}>
-                    <p className={s.logo}>
-                    <a href='https://magistra-do.ru/' target='_blank'>Magistra games</a>
-                    </p>
+                    <Link to='/' className={s.logo}>Magistra games</Link>
+                    {/* <p className={s.logo}>
+                        <a href='https://magistra-do.ru/' target='_blank'>Magistra games</a>
+                    </p> */}
                     <nav className={s.nav}>
                         <ul className={s.list}>
                             <li className={s.item}>
