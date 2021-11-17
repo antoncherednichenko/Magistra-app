@@ -1,0 +1,7 @@
+@keyframes hair{
+ 
+}
+#hair{
+    transform-origin: rigth 0;
+    animation: hair 3s infinite;
+}

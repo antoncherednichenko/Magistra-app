@@ -1,3 +1,6 @@
+body{
+  z-index: 99;
+}
 
 #root{
   height: 100vh;

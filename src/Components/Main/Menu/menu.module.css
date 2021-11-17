@@ -33,7 +33,6 @@
     line-height: 118.69%;  
     letter-spacing: -0.005em;
     color: rgba(25, 18, 99, 1);
-    box-shadow: 0px 8px 35px rgba(135, 146, 161, 0.25);
     border-radius: 18px;
     transition: box-shadow 0.5s ease, bottom 0.5s ease, color 0.5s ease;
     position: relative; 
@@ -43,9 +42,9 @@
 }
 
 .item:hover{
-    box-shadow: 0px 8px 35px rgba(141, 222, 140 , 1);
+    box-shadow: 0 20px 38px 0 rgb(0 0 0 / 20%);
     bottom: 3px;
-    color: rgba(25, 18, 99, 0.8);
+    
 }
 .squer{
     width: 119px;
@@ -70,4 +69,10 @@
     position: absolute;
     bottom: 0;
     right: -81px;
+}
+.bush{
+    position: absolute;
+    bottom: 7px;
+    left: 0;
+    z-index: 100;
 }

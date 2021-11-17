@@ -1,14 +1,14 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import Bush from './Bush/Bush'
 import Girl from './Girl/Girl'
 import s from './menu.module.css'
 
 export default function Menu() {
     const[list, setList] = useState([
-        {id: 1, title: 'Математика', route: '#'},
+        {id: 1, title: 'Математика', route: '/math'},
         {id: 3, title: 'Русский язык', route: '#'},
-        {id: 4, title: 'Английский язык', route: '#'},
-        {id: 5, title: 'Подготовка к школе', route: '#'}
+        {id: 4, title: 'Английский язык', route: '#'}
     ])
     return (
         <div className={s.container}>
@@ -19,6 +19,7 @@ export default function Menu() {
                 <div className={s.squer}></div>
                 <div className={s.circle}></div>
                 <Girl pos={s.girl}/>
+                <Bush bushPosition ={s.bush} />
             </div>
         </div>
     )
