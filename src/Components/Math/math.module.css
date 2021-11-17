@@ -2,6 +2,7 @@
     position: relative;
     width: 100%;
     height: 100vh;
+    overflow: hidden;
 }
 .container{
     padding: 0 15px;
@@ -76,8 +77,9 @@
     margin: 0 auto;
 }
 .mathBush{
+    width: 20%;
     position: absolute;
-    bottom: 0;
-    right: 0;
+    bottom: -25px;
+    right: -20px;
     z-index: 1000;
 }

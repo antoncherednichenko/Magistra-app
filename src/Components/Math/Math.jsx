@@ -45,7 +45,8 @@ export default function Math(){
                         ))}
                     </div>
                 </div>
-                <MathBush bushPos={s.mathBush} />
+                {/* <MathBush bushPos={s.mathBush} /> */}
+                <img className={s.mathBush} src='./img/mathbush.svg' alt='bush illustration'/>
                 <div className={s.square}></div>
                 <div className={s.circle}></div>
                 <div className={s.triangle}></div>
