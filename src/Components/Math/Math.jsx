@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import Header from '../Main/Header/Header'
+import Modal from '../Modal/Modal'
 import s from './math.module.css'
-import MathBush from './MathBush/MathBush'
 
 export default function Math(){
     const[cards, setCards] = useState([
@@ -34,6 +34,7 @@ export default function Math(){
     return(
         <>
             <Header />
+            <Modal />
             <div className={s.page}>
                 <div className={s.container}>
                     <div className={s.cardBar}>
@@ -45,7 +46,6 @@ export default function Math(){
                         ))}
                     </div>
                 </div>
-                {/* <MathBush bushPos={s.mathBush} /> */}
                 <img className={s.mathBush} src='./img/mathbush.svg' alt='bush illustration'/>
                 <div className={s.square}></div>
                 <div className={s.circle}></div>
