@@ -8,6 +8,7 @@
     justify-content: center;
     background: rgba(255, 255, 255, 0.5);
     backdrop-filter: blur(4px);
+    transition: 1s;
 }
 .modal{
     width: 500px;
@@ -18,7 +19,7 @@
 }
 .close{
     margin: 0 auto;
-    padding: 15px 21px;
+    padding: 25px 30px 0 0;
     width: 100%;
     display: flex;
     justify-content: flex-end;
@@ -44,4 +45,89 @@
     text-align: center;
     letter-spacing: 0.12em;
     color: #191263;
+}
+.title::after{
+    content: '';
+    display: block;
+    width: 218px;
+    height: 1px;
+    background-color: #191263;
+    margin: 5px auto;
+}
+.amountContainer{
+    padding: 5px 0;
+    display: flex;
+    justify-content: space-between;
+    width: 250px;
+    margin: 0 auto;
+}
+.amountWindow{
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    font-size: 45px;
+}
+.amountBar{
+    display: flex;
+    width: 254px;
+    gap: 1px;
+    transition: transform 0.5s;
+}
+.amountEl{
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #191263;
+}
+
+.levelContainer{
+    padding: 5px 0;
+    display: flex;
+    justify-content: space-between;
+    width: 250px;
+    margin: 0 auto;
+}
+.levelWindow{
+    width: 115px;
+    height: 50px;
+    overflow: hidden;
+   
+}
+.levelBar{
+    display: flex;
+    width:375px;
+    gap: 10px;
+    transition: transform 0.5s;
+}
+.levelEl{
+    width: 115px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #191263;
+    font-size: 30px;
+}
+.level{
+    padding-top: 30px;
+}
+.begin{
+    max-width: 240px;
+    margin: 25px auto 0 auto;
+    width: 100%;
+    background: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #191263;
+    font-weight: normal;
+    font-size: 35px;
+    line-height: 118.69%;
+    text-align: center;
+    letter-spacing: 0.12em;
+    color: #191263;
+    cursor: pointer;
+    padding: 10px 0;
 }
