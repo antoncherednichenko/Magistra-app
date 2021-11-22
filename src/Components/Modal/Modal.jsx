@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import s from './modal.module.css'
+import { Link } from 'react-router-dom'
 
-export default function Modal({visible}){
+export default function Modal({hide}){
     const[amountArr, setAmountArr] = useState([
         {id: 1, title: '1'},
         {id: 2, title: '2'},
@@ -15,40 +16,50 @@ export default function Modal({visible}){
     ])
     const [offsetAmount, setOffsetAmount] = useState(0)
     const [offsetLevel, setOffsetLevel] = useState(0)
+    const [amountWindows, setAmountWindows] = useState(1)
+    const [level, setLevel] = useState(1)
     const nextAmount = () => {
         if (offsetAmount === -150) {
             setOffsetAmount(0)
+            setAmountWindows(1)
         } else {
             setOffsetAmount(prevOffset => prevOffset - 50)
+            setAmountWindows(amountWindows + 1)
         }
     }
     const prevAmount = () => {
         if (offsetAmount === 0) {
             setOffsetAmount(-150)
+            setAmountWindows(4)
         } else {
             setOffsetAmount(prevOffset => prevOffset + 50)
+            setAmountWindows(amountWindows - 1)
         }
     }
 
     const nextLevel = () => {
         if (offsetLevel === -250) {
             setOffsetLevel(0)
+            setLevel(1)
         } else {
             setOffsetLevel(prevOffset => prevOffset - 125)
+            setLevel(level + 1)
         }
     }
     const prevLevel = () => {
         if (offsetLevel === 0) {
             setOffsetLevel(-250)
+            setLevel(3)
         } else {
             setOffsetLevel(prevOffset => prevOffset + 125)
+            setLevel(level - 1)
         }
     }
     return(
         <div className={s.background}>
             <div className={s.modal}>
                 <div className={s.close}>
-                    <button onClick={()=>visible()} className={`${s.btn} ${s.closeBtn} `} type='button'>
+                    <button onClick={()=>hide()} className={`${s.btn} ${s.closeBtn} `} type='button'>
                     <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M18.2222 16.0003L26.5397 7.6828C27.1541 7.06838 27.1541 6.07524 26.5397 5.46082C25.9253 4.84639 24.9321 4.84639 24.3177 5.46082L16.0002 13.7783L7.68279 5.46082C7.06837 4.84639 6.07524 4.84639 5.46082 5.46082C4.84639 6.07524 4.84639 7.06838 5.46082 7.6828L13.7783 16.0003L5.46082 24.3178C4.84639 24.9323 4.84639 25.9254 5.46082 26.5398C5.76724 26.8463 6.16952 27.0003 6.5718 27.0003C6.97408 27.0003 7.37636 26.8463 7.68279 26.5398L16.0002 18.2223L24.3177 26.5398C24.6241 26.8463 25.0264 27.0003 25.4287 27.0003C25.831 27.0003 26.2333 26.8463 26.5397 26.5398C27.1541 25.9254 27.1541 24.9323 26.5397 24.3178L18.2222 16.0003Z" fill="#191263"/>
                     </svg>
@@ -93,7 +104,10 @@ export default function Modal({visible}){
                             </button>
                         </div>
                    </div>
-                    <button className={s.begin} type='button'>Начать</button>
+                    <button onClick={()=>{
+                        console.log(level)
+                        console.log(amountWindows)
+                    }} className={s.begin} type='button'>Начать</button>
                 </div>
             </div>
         </div>

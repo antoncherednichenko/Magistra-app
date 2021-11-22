@@ -7,7 +7,7 @@ import s from './menu.module.css'
 export default function Menu() {
     const[list, setList] = useState([
         {id: 1, title: 'Математика', route: '/math'},
-        {id: 3, title: 'Русский язык', route: '#'},
+        {id: 3, title: 'Русский язык', route: '/math/maze'},
         {id: 4, title: 'Английский язык', route: '#'}
     ])
     return (

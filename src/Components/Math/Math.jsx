@@ -7,7 +7,7 @@ import s from './math.module.css'
 export default function Math(){
     const[cards, setCards] = useState([
         {
-            id: 1,
+            id: '1',
             title: 'ЛАБИРИНТЫ',
             icon: './img/labirint_animated.svg',
             route: '/maze'
@@ -21,7 +21,7 @@ export default function Math(){
         {
             id: 3,
             title: 'РЕШИ ПРИМЕР',
-            icon: './img/primer.svg',
+            icon: './img/primer_animated.svg',
             route: '/solve'
         },
         {
@@ -33,20 +33,23 @@ export default function Math(){
     ])
     const [isVisible, setIsVisible] = useState(false)
 
-    const toggleModal = (e) => {
-        setIsVisible(prevIsVisible => prevIsVisible = !prevIsVisible)
+    const showModal = (ev) => {
+        setIsVisible(prevIsVisible => prevIsVisible = true)
+    }
+    const hideModal = () => {
+        setIsVisible(prevIsVisible => prevIsVisible = false)
     }
     return(
         <>
             <Header />
-            {isVisible && <Modal visible={toggleModal} />}
+            {isVisible && <Modal hide={hideModal}/>}
             <div className={s.page}>
                 <div className={s.container}>
                     <div className={s.cardBar}>
                         {cards.map(card => (
-                            <button onClick={() => toggleModal()} className={s.card} key={card.id}>
-                                <h2 className={s.title}>{card.title}</h2>
-                                <img className={s.icon} src={card.icon} alt='icon' />
+                            <button data-path={card.route} onClick={(e) => showModal(e)} className={s.card} key={card.id}>
+                                <h2 data-path={card.route} className={s.title}>{card.title}</h2>
+                                <img data-path={card.route} className={s.icon} src={card.icon} alt='icon' />
                             </button>
                         ))}
                     </div>
