@@ -9,9 +9,6 @@ export default function Header(){
             <header className={s.header}>
                 <div className={`${s.container} ${s.flexContainer}`}>
                     <Link to='/' className={s.logo}>Magistra games</Link>
-                    {/* <p className={s.logo}>
-                        <a href='https://magistra-do.ru/' target='_blank'>Magistra games</a>
-                    </p> */}
                     <nav className={s.nav}>
                         <ul className={s.list}>
                             <li className={s.item}>

@@ -1,26 +1,29 @@
 import { useEffect, useState } from "react"
 import s from './maze.module.css'
+import createMaze from "./createMaze"
 
 export default function Maze({windows, complexity}) {
+    const [matrix, setMatrix] = useState([])
 
-    const [matrix, setMatrix] = useState(null)
-    useEffect(() => {
-        const initArr = []
-            for (let i = 0; i <= 10; i++) {
-                const arr = []
-                for (let j = 0; j <= 10; j++) {
-                    arr.push(false)
-                }
-                initArr.push(arr)
-            }
-        setMatrix(initArr)
-    }, [])
-    console.log(matrix)
+    useEffect(() => setMatrix(createMaze(55)), [])
+
     return (
         <>
             <div className={s.area}>
-                {matrix.flatMap((row) => row.map(cell => <div className={s.cell}></div>))}
+                {matrix.flatMap((row) => row.map((cell, index) => {
+                    if (cell === 'start') {
+                        return <div key={Math.random()} className={s.start}></div>
+                    } else if (cell === 'finish') {
+                        return <div key={Math.random()} className={s.finish}></div>
+                    } else if (cell) {
+                        return <div key={Math.random()} className={s.free}></div>
+                    } else {
+                        return <div key={Math.random()} className={s.cell}></div>
+                    }
+                }))}
             </div>
         </>
     )
-}
+}                   
+
+

@@ -1,13 +1,21 @@
+import GameHeader from "./GameHeader.jsx/GameHeader";
+import s from './game.module.css'
+import { connect } from 'react-redux'
 
-export default function Game({complexity, windows, game}) {
+function Game({gameSettings}) {
 
     return (
         <>
-            <ul>
-                <li>{complexity}</li>
-                <li>{windows}</li>
-                <li>{game}</li>
-            </ul>
+            <GameHeader />
+            <div className={s.container}>
+
+            </div>
         </>
     )
 }
+
+const mapStateToProps= state => ({
+    gameSettings: state.gameSettings
+})
+
+export default connect(mapStateToProps)(Game)

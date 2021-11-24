@@ -11,6 +11,7 @@
     transition: 1s;
 }
 .modal{
+    position: relative;
     width: 500px;
     height: 420px;
     background: #FFFFFF;
@@ -114,7 +115,7 @@
     padding-top: 30px;
 }
 .begin{
-    max-width: 240px;
+    max-width: 180px;
     margin: 25px auto 0 auto;
     width: 100%;
     background: none;
@@ -123,11 +124,27 @@
     align-items: center;
     border: 1px solid #191263;
     font-weight: normal;
-    font-size: 35px;
+    font-size: 25px;
     line-height: 118.69%;
     text-align: center;
     letter-spacing: 0.12em;
     color: #191263;
     cursor: pointer;
     padding: 10px 0;
+}
+.boy{
+    width: 50%;
+    position: absolute;
+    bottom: -22px;
+    right: -14px;
+    z-index: 100;
+}
+.boy svg{
+    width: 100%;
+}
+.bushes{
+    position: absolute;
+    bottom: -30px;
+    left: -45px;
+    z-index: 100;
 }
