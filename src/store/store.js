@@ -37,7 +37,9 @@ const initialState = {
         complexity: 1,
         windows: 1,
         game: '',
-    }
+        route: '',
+    },
+    backgoundColor: `#fff`,
 }
 
 export default createStore(reducer, initialState)

@@ -1,0 +1,62 @@
+.gameCardHeader{
+    width: 100%;
+    padding: 10px 0;
+    border-radius: 0 0 10px 10px;
+    border-bottom: 1px solid #d6d5d5;
+}
+
+.wrapper{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 75%;
+    width: 100%;
+    margin: 0 auto;
+    padding: 5px 0;
+}
+.namePlace{
+    max-width: 45%;
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 2px;
+    background-color: inherit;
+    font-size: 18px;
+    color: #191263;
+
+}
+.namePlace::placeholder{
+    font-size: 18px;
+    color: #191263;
+    opacity: 0.8;
+}
+.setColor{
+    width: 25px;
+    height: 25px;
+    background-color: red;
+    cursor: pointer;
+    background: rgb(156,195,34);
+    background: linear-gradient(0deg, rgba(156,195,34,1) 0%, rgba(253,97,45,1) 100%);
+    transition: background 0.5s;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+}
+.setColor:hover{
+    background: rgb(156,195,34);
+    background: linear-gradient(45deg, rgba(156,195,34,1) 0%, rgba(253,97,45,1) 100%);
+}
+.colorBox{
+    position:absolute;
+    padding:10px;
+    text-align: center;
+    transform: translateY(25px);
+    z-index: 1; 
+}
+.color{
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    transition: transform 0.5s;
+}
+.color:hover{
+    transform: translateY(-5px);
+}

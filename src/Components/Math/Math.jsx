@@ -3,12 +3,13 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import Header from '../Main/Header/Header'
 import Modal from '../Modal/Modal'
+import Card from '../Card/Card'
 import s from './math.module.css'
 
 function Math({mathCards}){
     const [isVisible, setIsVisible] = useState(false)
 
-    const showModal = (ev) => {
+    const showModal = () => {
         setIsVisible(prevIsVisible => prevIsVisible = true)
     }
     const hideModal = () => {
@@ -22,17 +23,20 @@ function Math({mathCards}){
                 <div className={s.container}>
                     <div className={s.cardBar}>
                         {mathCards.map(card => (
-                            <button data-path={card.route} onClick={(e) => showModal(e)} className={s.card} key={card.id}>
-                                <h2 data-path={card.route} className={s.title}>{card.title}</h2>
-                                <img data-path={card.route} className={s.icon} src={card.icon} alt='icon' />
-                            </button>
+                            <Card
+                                onShow={showModal}
+                                key={card.id}
+                                title={card.title}
+                                url={card.url}
+                                id={card.id}
+                            />
                         ))}
                     </div>
+                    <div className={s.square}></div>
+                    <div className={s.circle}></div>
+                    <div className={s.triangle}></div>
                 </div>
                 <img className={s.mathBush} src='./img/mathbush.svg' alt='bush illustration'/>
-                <div className={s.square}></div>
-                <div className={s.circle}></div>
-                <div className={s.triangle}></div>
             </div>
         </>
     )

@@ -9,6 +9,8 @@ import GameHeader from "./Components/Game/GameHeader.jsx/GameHeader";
 import Main from './Components/Main/Main';
 import Math from './Components/Math/Math';
 import Maze from './Components/Math/Maze/Maze'
+import Test from './Components/Test/test';
+import TestContainer from './Components/Test/test';
 
 function App() {
  
