@@ -1,26 +1,16 @@
-import GameHeader from "./GameHeader.jsx/GameHeader";
-import s from './game.module.css'
+import { useEffect, useState } from 'react'
+import s from './Game.module.css'
 import { connect } from 'react-redux'
 import GameCard from './GameCard/GameCard'
-import Maze from '../Math/Maze/Maze'
+import GameHeader from "./GameHeader.jsx/GameHeader";
 
-function Game({gameSettings}) {
-
+function Game({gameSettings, game}) {
     return (
         <>
             <GameHeader />
             <div className={s.container}>
                 <GameCard>
-                3333
-                    {/* <Maze /> */}
-                </GameCard>
-                <GameCard>
-                3333
-                    {/* <Maze /> */}
-                </GameCard>
-                <GameCard>
-                3333
-                    {/* <Maze /> */}
+                    {game}
                 </GameCard>
             </div>
             

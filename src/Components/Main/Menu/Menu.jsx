@@ -6,11 +6,6 @@ import Girl from './Girl/Girl'
 import s from './menu.module.css'
 
 function Menu({menuList}) {
-    // const[list, setList] = useState([
-    //     {id: 1, title: 'Математика', route: '/math'},
-    //     {id: 3, title: 'Русский язык', route: '/math/maze'},
-    //     {id: 4, title: 'Английский язык', route: '#'}
-    // ])
     return (
         <div className={s.container}>
             <div className={s.shape}>

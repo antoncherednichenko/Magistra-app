@@ -1,36 +1,22 @@
 .area{
-    max-width: 550px;
+    display: grid;
     width: 100%;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 0;
-    background-color: coral;
-    margin: 40px auto 0 auto;
-    transform: rotate(360deg);
+    height: 100%;
+    grid-template-rows: repeat(55, minmax(0, 1fr));
+    grid-template-columns: repeat(55, minmax(0, 1fr));
 
 }
 .cell{
-    width: 10px;
-    height: 10px;
-    background-color: rgb(24, 71, 42);
+    background-color: #191263;
 }
 .free{
-    width: 10px;
-    height: 10px;
-    background-color: rgb(114, 218, 128); 
+    background-color: #fff; 
 }
 
 .start{
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background-color: rgb(131, 0, 253); 
+    background-color: #08fb00; 
 }
 
 .finish{
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background-color: rgb(248, 0, 0); 
+    background-color: #f51d00; 
 }

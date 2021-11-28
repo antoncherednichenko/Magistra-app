@@ -1,19 +1,24 @@
 import { useState } from 'react'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
 import Header from '../Main/Header/Header'
 import Modal from '../Modal/Modal'
 import Card from '../Card/Card'
 import s from './math.module.css'
+import store from '../../store/store'
 
 function Math({mathCards}){
     const [isVisible, setIsVisible] = useState(false)
+    const dispatch = store.dispatch
 
-    const showModal = () => {
+    const showModal = (value, id) => {
         setIsVisible(prevIsVisible => prevIsVisible = true)
+        dispatch({type:'SET_ROUTE', payload: value})
+        dispatch({type:'SET_GAME', payload: id})
+
     }
     const hideModal = () => {
         setIsVisible(prevIsVisible => prevIsVisible = false)
+        dispatch({type:'SET_DEFAULT'})
     }
     return(
         <>
@@ -28,6 +33,7 @@ function Math({mathCards}){
                                 key={card.id}
                                 title={card.title}
                                 url={card.url}
+                                route={card.route}
                                 id={card.id}
                             />
                         ))}

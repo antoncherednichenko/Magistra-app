@@ -16,25 +16,15 @@ function GameCardHeader({gameSettings, backgoundColor, pushColor}) {
         'Капитошка',
         'Живжик',
         ]
-    const [colors, setColors] = useState([
-        '#FACFCA',
-        '#FED385',
-        '#8DDE8C',
-        '#B1E9DD',
-        '#FA8273'
-    ])
     const [bgColor, setBgColor] = useState('#fff')
-    const [isVisible, setIsVisible] = useState(false)
     const [placeholder, setPlaceholder] = useState('')
     useEffect(()=>{
         const index = randomInteger(0, names.length)
         setPlaceholder(prevPlaceholder => prevPlaceholder = names[index])
     }, [])
     const setColor = (e) => {
-        e.stopPropagation()
-        const currentColor = e.currentTarget.style.backgroundColor
+        const currentColor = e.currentTarget.value
         setBgColor(prev => prev = currentColor)
-        setIsVisible(prev=>prev=!prev)
     }
     return(
         <>
@@ -42,20 +32,11 @@ function GameCardHeader({gameSettings, backgoundColor, pushColor}) {
             <div className={s.wrapper}>
                 <input className={s.namePlace} placeholder={placeholder}/>
                 <Settings
-                    gameSettings={gameSettings}
-                    settings={['Легко', 'Средне', 'Сдожно']} 
+                    values={['Легко', 'Средне', 'Сложно',]}
+                    selectedValue={gameSettings.complexity === 1?'Легко':gameSettings.complexity === 2?'Средне':'Сложно'} 
                 />
-                <div onClick={()=>setIsVisible(prev=>prev=!prev)} className={s.setColor}>
-                    <div style={{display: `${isVisible? 'block': 'none'}`}} className={s.colorBox}>
-                        {colors.map((color, index) => (
-                            <div
-                            onClick={(e)=>setColor(e)}
-                            key={index}
-                            className={s.color}
-                            style={{backgroundColor:`${color}`}}
-                            ></div>
-                        ))}
-                    </div>
+                <div  >
+                  <input className={s.color} onChange={(e)=>setColor(e)} type='color'/>
                 </div>
             </div>
         </header>

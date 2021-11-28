@@ -55,8 +55,13 @@
     width: 30px;
     height: 30px;
     cursor: pointer;
+    border: none;
+    outline: none;
     transition: transform 0.5s;
 }
-.color:hover{
-    transform: translateY(-5px);
+
+
+.customSelect{
+    width: 50px;
+    cursor: pointer;
 }

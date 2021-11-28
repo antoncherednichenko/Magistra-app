@@ -1,8 +1,11 @@
 import { useState } from 'react'
 import s from './modal.module.css'
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
+import updateComplexity from '../../actionCreators/updateComplexity'
+import store from '../../store/store'
 
-export default function Modal({hide}){
+function Modal({hide, gameSettings}){
   
     const [levelArr, setLevelArr] = useState([
         {id: 1, title: 'Легко'},
@@ -18,22 +21,31 @@ export default function Modal({hide}){
     const [offsetWindow, setOffsetWindow] = useState(0)
     const [level, setLevel] = useState(1)
     const [window, setWindow] = useState(1)
+    const dispatch = store.dispatch
     const nextLevel = () => {
         if (offsetLevel === -250) {
             setOffsetLevel(0)
             setLevel(1)
+            dispatch({type:'CHANGE_COMPLEXITY', payload:-2})
+            console.log(gameSettings)
         } else {
             setOffsetLevel(prevOffset => prevOffset - 125)
             setLevel(level + 1)
+            dispatch({type:'CHANGE_COMPLEXITY', payload:1})
+            console.log(gameSettings)
         }
     }
     const prevLevel = () => {
         if (offsetLevel === 0) {
             setOffsetLevel(-250)
             setLevel(3)
+            dispatch({type:'CHANGE_COMPLEXITY', payload:2})
+            console.log(gameSettings)
         } else {
             setOffsetLevel(prevOffset => prevOffset + 125)
             setLevel(level - 1)
+            dispatch({type:'CHANGE_COMPLEXITY', payload:-1})
+            console.log(gameSettings)
         }
     }
 
@@ -41,20 +53,30 @@ export default function Modal({hide}){
         if (offsetWindow === -250) {
             setOffsetWindow(0)
             setWindow(1)
+            dispatch({type:'CHANGE_WINDOWS', payload: -2})
+            console.log(gameSettings)
         } else {
             setOffsetWindow(prevOffset => prevOffset - 125)
             setWindow(window + 1)
+            dispatch({type:'CHANGE_WINDOWS', payload: 1})
+            console.log(gameSettings)
+            
         }
     }
     const prevWindow = () => {
         if (offsetWindow === 0) {
             setOffsetWindow(-250)
             setWindow(3)
+            dispatch({type:'CHANGE_WINDOWS', payload: 2})
+            console.log(gameSettings)
         } else {
             setOffsetWindow(prevOffset => prevOffset + 125)
             setWindow(window - 1)
+            dispatch({type:'CHANGE_WINDOWS', payload: -1})
+            console.log(gameSettings)
         }
     }
+    console.log(gameSettings)
     return(
         <div className={s.background}>
             <div className={s.modal}>
@@ -109,8 +131,7 @@ export default function Modal({hide}){
                             </button>
                         </div>
                    </div>
-                    <button onClick={()=>{
-                    }} className={s.begin} type='button'>Начать</button>
+                    <Link to={gameSettings.route} className={s.begin} type='button'>Начать</Link>
                 </div>
             <div className={s.bushes}>
                 <svg width="153" height="140" viewBox="0 0 153 140" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -134,3 +155,9 @@ export default function Modal({hide}){
         </div>
     )
 }
+
+const mapStateToProps = state => ({
+    gameSettings: state.gameSettings
+})
+
+export default connect(mapStateToProps)(Modal)

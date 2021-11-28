@@ -1,40 +1,57 @@
-.item{
-    font-size: 18px;
+.wrapper{
+    width:90px;
+    position: relative;
+
+}
+.btn{
+    width: 100%;
+    background: none;
+    padding: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+    color: #191263;
+    border: none;
+    font-size: 16px;
     line-height: 118.69%;
     letter-spacing: 0.12em;
-    color: #191263;
-    text-transform: uppercase;
-    cursor: pointer;
 }
-
-.setting{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    max-width: 100%;
-    width:100%;
-    padding: 10px 0;
-    cursor: pointer;
-    transition: transform 0.5s;
-    font-size: 16px;
-    color:#191263;
-    text-transform: none;
-    letter-spacing: 0;
+.btn::after{
+    content: 'ᐯ';
+    padding: 0 0 0 15px;
 }
-.setting:not(:last-child){
-    border-bottom: 1px solid #d6d5d5;
+.btn:hover{
+    background-color: #f0f0f0;
+    
 }
-.setting:hover{
-    transform: translateY(-2px)
-}
-.values{
-    z-index: 1;
+.list{
     position: absolute;
-    width: 75px;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    background-color: #fff;
-    box-shadow:  2px 8px 8px rgb(0 0 0 / 23%);
     justify-content: center;
     align-items: center;
+    background-color: #fff;
+    box-shadow: 10px 10px 10px rgb(0 0 0 / 15%);
+    gap: 5px;
+    top: 45px;
+}
+.item{
+    width: 100%;
+    
+}
+.item button{
+    width: 100%;
+    border: none;
+    text-align: center;
+    cursor: pointer;
+    background-color: #fff;
+    color: #191263;
+    font-size: 18px;
+    transition: 0.5s;
+    padding: 5px;
+
+}
+.item button:hover{
+    background-color: #f0f0f0;
+    
 }
