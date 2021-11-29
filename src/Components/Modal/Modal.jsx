@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import s from './modal.module.css'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
@@ -19,33 +19,26 @@ function Modal({hide, gameSettings}){
     ])
     const [offsetLevel, setOffsetLevel] = useState(0)
     const [offsetWindow, setOffsetWindow] = useState(0)
-    const [level, setLevel] = useState(1)
+    const [level, setLevel] = useState(0)
     const [window, setWindow] = useState(1)
     const dispatch = store.dispatch
     const nextLevel = () => {
         if (offsetLevel === -250) {
             setOffsetLevel(0)
-            setLevel(1)
-            dispatch({type:'CHANGE_COMPLEXITY', payload:-2})
-            console.log(gameSettings)
+            setLevel(0)
+            
         } else {
             setOffsetLevel(prevOffset => prevOffset - 125)
             setLevel(level + 1)
-            dispatch({type:'CHANGE_COMPLEXITY', payload:1})
-            console.log(gameSettings)
         }
     }
     const prevLevel = () => {
         if (offsetLevel === 0) {
             setOffsetLevel(-250)
-            setLevel(3)
-            dispatch({type:'CHANGE_COMPLEXITY', payload:2})
-            console.log(gameSettings)
+            setLevel(2)
         } else {
             setOffsetLevel(prevOffset => prevOffset + 125)
             setLevel(level - 1)
-            dispatch({type:'CHANGE_COMPLEXITY', payload:-1})
-            console.log(gameSettings)
         }
     }
 
@@ -54,12 +47,10 @@ function Modal({hide, gameSettings}){
             setOffsetWindow(0)
             setWindow(1)
             dispatch({type:'CHANGE_WINDOWS', payload: -2})
-            console.log(gameSettings)
         } else {
             setOffsetWindow(prevOffset => prevOffset - 125)
             setWindow(window + 1)
             dispatch({type:'CHANGE_WINDOWS', payload: 1})
-            console.log(gameSettings)
             
         }
     }
@@ -68,15 +59,13 @@ function Modal({hide, gameSettings}){
             setOffsetWindow(-250)
             setWindow(3)
             dispatch({type:'CHANGE_WINDOWS', payload: 2})
-            console.log(gameSettings)
         } else {
             setOffsetWindow(prevOffset => prevOffset + 125)
             setWindow(window - 1)
             dispatch({type:'CHANGE_WINDOWS', payload: -1})
-            console.log(gameSettings)
         }
     }
-    console.log(gameSettings)
+    useEffect(() =>dispatch({type:'CHANGE_COMPLEXITY', payload:levelArr[level].title}) , [level])
     return(
         <div className={s.background}>
             <div className={s.modal}>

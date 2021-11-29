@@ -37,7 +37,7 @@ const initialState = {
         },
     ],
     gameSettings:{
-        complexity: 1,
+        complexity: 'Легко',
         windows: 1,
         game: '',
         route: '',

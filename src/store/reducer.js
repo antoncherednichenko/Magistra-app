@@ -2,10 +2,9 @@
 export default function reducer(state, action) {
     switch(action.type) {
         case 'CHANGE_COMPLEXITY':
-            const value = state.gameSettings.complexity + action.payload
             return {
                 ...state, 
-                gameSettings: {...state.gameSettings, complexity: value}
+                gameSettings: {...state.gameSettings, complexity: action.payload}
             }
         case  'CHANGE_WINDOWS':
             const windowsValue = state.gameSettings.windows + action.payload

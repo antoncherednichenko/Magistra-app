@@ -47,9 +47,7 @@ function Game({gameSettings, Game}) {
               
                     {gameArray.map((game, index) => (
                        <GameCard complexity={complexity}>
-                            {<Game
-                                complexity={complexity}
-                            />}
+                            {<Game />}
                        </GameCard>
                     ))}
                 

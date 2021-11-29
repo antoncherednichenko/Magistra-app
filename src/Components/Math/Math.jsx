@@ -24,6 +24,7 @@ function Math({mathCards}){
         setIsVisible(prevIsVisible => prevIsVisible = false)
         dispatch({type:'SET_DEFAULT'})
     }
+    console.log(mathCards)
     return(
         <>
             <Header />
@@ -36,7 +37,7 @@ function Math({mathCards}){
                                 onShow={showModal}
                                 key={card.id}
                                 title={card.title}
-                                url={card.url}
+                                url={card.icon}
                                 route={card.route}
                                 id={card.id}
                             />

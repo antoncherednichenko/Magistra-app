@@ -8,7 +8,7 @@ function randomInteger(min, max) {
     return Math.floor(Math.random() * (max - min) + min)
   }
 
-function GameCardHeader({complexity}) {
+function GameCardHeader({complexity, onSelected}) {
     const names = [
         'Месье Колбасье ', 
         'Кабачок', 
@@ -17,7 +17,6 @@ function GameCardHeader({complexity}) {
         'Капитошка',
         'Живжик',
         ]
-    const [componentComplexity, setComponentComplexity] = useState(complexity)
     const [bgColor, setBgColor] = useState('#fff')
     const [placeholder, setPlaceholder] = useState('')
     useEffect(()=>{
@@ -34,7 +33,7 @@ function GameCardHeader({complexity}) {
             <div className={s.wrapper}>
                 <input className={s.namePlace} placeholder={placeholder}/>
                 <Settings
-                    onSelected={(e)=> console.log(e)}
+                    onSelected={(e)=> onSelected(e.target.textContent)}
                     values={['Легко', 'Средне', 'Сложно',]}
                     selectedValue={complexity} 
                 />
