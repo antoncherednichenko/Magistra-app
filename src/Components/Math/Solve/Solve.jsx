@@ -1,13 +1,15 @@
 import { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
 import getSolve from './getSolve'
+import {useLocation } from "react-router-dom"
 import s from './Solve.module.css'
 
 function Solve({gameSettings}) {
     const [complexity, setComplexity] = useState(gameSettings.complexity)
     const [solve, setSolve] = useState(getSolve(complexity))
+    const history = useLocation()
     
-    console.log(solve.answer)
+    console.log(history)
     return (
         <div>
             {solve.solve.map((el, index) => (

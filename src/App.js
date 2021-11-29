@@ -21,9 +21,9 @@ function App({gameSettings}) {
     <Route exact path={'/'} element={<Main />} />
     <Route exact path={'/math'} element={<Math />} />
     <Route exact path={'/russian_leng'} element={<Math />} />
-    <Route exact path={'/maze'} element={<Game game={<Maze />} />} />
-    <Route exact path={'/table_shulte'} element={<Game game={<Shulte />} />} />
-    <Route exact path={'/solve'} element={<Game game={<Solve />} />} />
+    <Route exact path={'/maze'} element={<Game Game={Maze} />} />
+    <Route exact path={'/table_shulte'} element={<Game Game={Shulte} />} />
+    <Route exact path={'/solve'} element={<Game Game={Solve} />} />
   </Routes>
 </BrowserRouter>
   )

@@ -2,11 +2,11 @@ import s from './gameCard.module.css'
 import { connect } from 'react-redux'
 import GameCardHeader from './GameCardHeader/GameCardHeader'
 
-function GameCard({gameSettings, children}) {
+function GameCard({complexity, children}) {
 
     return (
         <div className={s.gameCard}>
-            <GameCardHeader />
+            <GameCardHeader complexity={complexity} />
             {children}
         </div>
     )

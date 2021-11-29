@@ -33,11 +33,26 @@ export default function reducer(state, action) {
                 ...state,
                 gameSettings: {...state.gameSettings, route: action.payload}
             }
-        case 'SET_BACKGROUND_COLOR':
+            case 'SET_PREV_PATH':
             return {
                 ...state,
-                backgroundColor: action.payload
-            }              
+                prevPath: action.payload
+            }
+            case 'SET_COLOR':
+                return{
+                    ...state,
+                    bgColor: action.payload
+                }
+                case 'SET_COMPLEXITY':
+                    return {
+                        ...state,
+                        gameSettings:{...state.gameSettings, complexity: action.payload}
+                    }
+                case 'SET_WINDOWS':
+                return {
+                    ...state,
+                    gameSettings:{...state.gameSettings, windows: action.payload}
+                }                
 
         default: {
             return state

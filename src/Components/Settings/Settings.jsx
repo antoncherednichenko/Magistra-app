@@ -4,13 +4,14 @@ import { useState } from 'react'
 
 
 
-export default function Settings({values, selectedValue}) {
+export default function Settings({values, selectedValue, onSelected}) {
   const [selected, setSelected] = useState(selectedValue)
   const [isVisible, setIsVisible] = useState(false)
   const onVisible = () => setIsVisible(!isVisible)
-  const onSelected = (e) => {
-    setSelected(e.target.textContent)
+  const handleClick = e => {
     setIsVisible(false)
+    setSelected(e.target.textContent)
+    onSelected(e)
   }
     return(
        <>
@@ -20,16 +21,15 @@ export default function Settings({values, selectedValue}) {
             type='button'
             onClick={onVisible}
            >
-            {selected}
+            {selectedValue}
           </button>
           <ul 
-            className={s.list}
-            style={{display:`${isVisible?'block':'none'}`}}
+            className={`${s.list} ${isVisible && s.active}`}
           >
             {values.map((value, index)=>(
               <li className={s.item} key={index}>
                 <button 
-                  onClick={(e)=>onSelected(e)}
+                  onClick={(e)=>handleClick(e)}
                 >{value}</button>
               </li>
             ))}

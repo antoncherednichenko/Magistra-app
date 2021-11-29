@@ -3,11 +3,12 @@ import { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
 import Settings from '../../../Settings/Settings'
 
+
 function randomInteger(min, max) {
     return Math.floor(Math.random() * (max - min) + min)
   }
 
-function GameCardHeader({gameSettings, backgoundColor, pushColor}) {
+function GameCardHeader({complexity}) {
     const names = [
         'Месье Колбасье ', 
         'Кабачок', 
@@ -16,11 +17,12 @@ function GameCardHeader({gameSettings, backgoundColor, pushColor}) {
         'Капитошка',
         'Живжик',
         ]
+    const [componentComplexity, setComponentComplexity] = useState(complexity)
     const [bgColor, setBgColor] = useState('#fff')
     const [placeholder, setPlaceholder] = useState('')
     useEffect(()=>{
         const index = randomInteger(0, names.length)
-        setPlaceholder(prevPlaceholder => prevPlaceholder = names[index])
+        setPlaceholder(names[index])
     }, [])
     const setColor = (e) => {
         const currentColor = e.currentTarget.value
@@ -32,8 +34,9 @@ function GameCardHeader({gameSettings, backgoundColor, pushColor}) {
             <div className={s.wrapper}>
                 <input className={s.namePlace} placeholder={placeholder}/>
                 <Settings
+                    onSelected={(e)=> console.log(e)}
                     values={['Легко', 'Средне', 'Сложно',]}
-                    selectedValue={gameSettings.complexity === 1?'Легко':gameSettings.complexity === 2?'Средне':'Сложно'} 
+                    selectedValue={complexity} 
                 />
                 <div  >
                   <input className={s.color} onChange={(e)=>setColor(e)} type='color'/>
@@ -44,10 +47,7 @@ function GameCardHeader({gameSettings, backgoundColor, pushColor}) {
     )
 }
 
-const mapStateToProps = state => ({
-    gameSettings: state.gameSettings,
-    backgoundColor: state.backgoundColor
-})
 
 
-export default connect(mapStateToProps)(GameCardHeader)
+
+export default GameCardHeader

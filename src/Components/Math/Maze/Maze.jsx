@@ -1,15 +1,27 @@
 import { useEffect, useState } from "react"
 import s from './maze.module.css'
 import createMaze from "./createMaze"
+import { connect } from "react-redux"
 
-export default function Maze({windows, complexity}) {
+function randomInteger(min, max) {
+    return Math.floor(Math.random() * (max - min) + min)
+  }
+
+function Maze({complexity}) {
+    const[componentComplexity, setComponentComplexity] = useState(complexity)
     const [matrix, setMatrix] = useState([])
-
-    useEffect(() => setMatrix(createMaze(55)), [])
-
+    const degArr = [0, 90, 180, 270]
+    useEffect(() => setMatrix(createMaze(45)), [])
+    
     return (
         <>
-            <div className={s.area}>
+            <div
+            style={{
+                transform:`rotate(${degArr[randomInteger(0, degArr.length - 1)]}deg)`,
+                gridTemplateRows: `repeat(${45}, minmax(0, 1fr))`,
+                gridTemplateColumns: `repeat(${45}, minmax(0, 1fr))`
+            }}
+            className={s.area}>
                 {matrix.flatMap((row) => row.map((cell, index) => {
                     if (cell === 'start') {
                         return <div key={Math.random()} className={s.start}></div>
@@ -26,4 +38,8 @@ export default function Maze({windows, complexity}) {
     )
 }                   
 
+const mapStateToProps = state => ({
+    gameSettings: state.gameSettings
+})
 
+export default Maze

@@ -1,14 +1,18 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
 import Header from '../Main/Header/Header'
 import Modal from '../Modal/Modal'
 import Card from '../Card/Card'
 import s from './math.module.css'
 import store from '../../store/store'
+import {useLocation } from "react-router-dom"
 
 function Math({mathCards}){
     const [isVisible, setIsVisible] = useState(false)
     const dispatch = store.dispatch
+    const location = useLocation()
+    useEffect(() => localStorage.setItem('prevPath', location.pathname) ,[])
+    useEffect(() => dispatch({type:'SET_DEFAULT'}), [])
 
     const showModal = (value, id) => {
         setIsVisible(prevIsVisible => prevIsVisible = true)
