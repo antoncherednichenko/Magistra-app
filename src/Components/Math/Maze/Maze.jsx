@@ -7,19 +7,27 @@ function randomInteger(min, max) {
     return Math.floor(Math.random() * (max - min) + min)
   }
 
-function Maze({complexity}) {
-    const[componentComplexity, setComponentComplexity] = useState(complexity)
+function Maze({componentComplexity}) {
+    const complexityObj = {
+        'Легко': 25,
+        'Средне': 35,
+        'Сложно': 45,
+    }
     const [matrix, setMatrix] = useState([])
+    const [value, setValue] = useState(complexityObj[componentComplexity])
     const degArr = [0, 90, 180, 270]
-    useEffect(() => setMatrix(createMaze(45)), [])
-    
+    useEffect(() => {
+        matrix.splice()
+        setMatrix(createMaze(value))
+    }, [value])
+    useEffect(() => setValue(complexityObj[componentComplexity]), [componentComplexity])
     return (
         <>
             <div
             style={{
                 transform:`rotate(${degArr[randomInteger(0, degArr.length - 1)]}deg)`,
-                gridTemplateRows: `repeat(${45}, minmax(0, 1fr))`,
-                gridTemplateColumns: `repeat(${45}, minmax(0, 1fr))`
+                gridTemplateRows: `repeat(${value}, minmax(0, 1fr))`,
+                gridTemplateColumns: `repeat(${value}, minmax(0, 1fr))`
             }}
             className={s.area}>
                 {matrix.flatMap((row) => row.map((cell, index) => {
@@ -37,9 +45,5 @@ function Maze({complexity}) {
         </>
     )
 }                   
-
-const mapStateToProps = state => ({
-    gameSettings: state.gameSettings
-})
 
 export default Maze

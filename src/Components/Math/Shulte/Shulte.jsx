@@ -1,17 +1,33 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import s from './Shulte.module.css'
 import getShulteMatrix from './getShulteMatrix'
 
-export default function Shulte() {
-    const [matrix, setMatrix] = useState(getShulteMatrix(1))
-    console.log(matrix)
+export default function Shulte({componentComplexity}) {
+    const complexityObj = {
+        'Легко': 1,
+        'Средне': 2,
+        'Сложно': 3,
+    }
+    const [value, setValue] = useState(complexityObj[componentComplexity])
+    const [matrix, setMatrix] = useState(getShulteMatrix(complexityObj[componentComplexity]))
+    useEffect(() => {
+        matrix.splice()
+        setMatrix(getShulteMatrix(value))
+    }, [value])
+    useEffect(() => setValue(complexityObj[componentComplexity]),[componentComplexity])
+    console.log(matrix.length)
     return (
-        <div className={s.wrapper}>
+        <div
+        style ={{
+            gridTemplateRows: `repeat(${matrix.length}, 1fr)`,
+            gridTemplateColumns: `repeat(${matrix.length}, 1fr)`
+        }} 
+        className={s.wrapper}>
             {matrix.flatMap(row => (
                 row.map((el, index)=>(
                     <p 
                     className={s.item} 
-                    key={index}
+                    key={Math.random()}
                     >{el}</p> 
                 ))
             ))}

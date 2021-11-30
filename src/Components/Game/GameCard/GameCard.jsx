@@ -15,7 +15,9 @@ function GameCard({complexity, children}) {
             onSelected={changeComponentComplexity}
             />
             
-            {children}
+            {React.Children.map(children, child => {
+            return React.cloneElement(child, { componentComplexity })
+         })}
         </div>
     )
 }

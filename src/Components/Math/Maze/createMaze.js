@@ -1,10 +1,11 @@
 
 export default function createMaze(size) {
+    const eraser = {x: 0, y: 0};
     const maze = createMatrix(size)
     maze[eraser.x][eraser.y] = true
     
     for (let i = 0 ; i < 50000; i++) {
-        moveEraser(size, maze)
+        moveEraser(size, maze, eraser)
     }
     maze[0][0] = 'start'
     maze[size-1][size-1] = 'finish'
@@ -12,9 +13,7 @@ export default function createMaze(size) {
     return maze
 }
 
-const eraser = {x: 0, y: 0}
-
-function moveEraser(size, maze) {
+function moveEraser(size, maze, eraser) {
     const directions = getDirections(eraser, size)
     const [dx, dy] = getRandomWay(directions)
     
