@@ -14,14 +14,16 @@
     font-size: 16px;
     line-height: 118.69%;
     letter-spacing: 0.12em;
+    transition: box-shadow 0.5s, transform 0.5s;
+    will-change: box-shadow, transform;
 }
 .btn::after{
-    content: 'ᐯ';
-    padding: 0 0 0 15px;
+    content: '▲';
+    transition: color 0.5s, content 0.5s;
 }
-.btn:hover{
-    background-color: #f0f0f0;
-    
+.btn:hover::after{
+    content: '▼';
+    color: #8DDE8C;
 }
 .list{
     z-index: 100;

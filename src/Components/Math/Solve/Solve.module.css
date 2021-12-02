@@ -1,0 +1,87 @@
+.container{
+    width: 100%;
+    min-height: 240px;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+
+    border: 5px solid #191263d5;
+}
+
+.wrapper{
+    display: flex;
+    max-width: 50%;
+    width: 100%;
+    justify-content: space-between;
+}
+.wrapper span{
+    display: block;
+    font-size: 300%;
+    font-weight: 800;
+    color:#191263;
+}
+.number{
+    max-width: 25%;
+    width: 100%;
+    padding: 10px 10px 0 10px;
+    outline: none;
+    border: none;
+    border-bottom: 3px solid #191263;
+    background-color: inherit;
+    font-size: 24px;
+    font-weight: 800;
+    color: #191263;
+    text-align: center;
+    margin: 0 0 15px 0;
+    
+}
+
+.number::-webkit-outer-spin-button,
+.number::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+.number[type=number] {
+    -moz-appearance:textfield; /* Firefox */
+}
+.number::placeholder{
+    color: #191263;
+    opacity: 0.7;
+}
+
+.counter{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 18px;
+    color: #191263;
+}
+
+.check{
+    max-width: 25%;
+    width: 100%;
+    padding: 8px 10px;
+    cursor: pointer;
+    border: none;
+    border: 1px solid #191263d5;
+    border-radius: 5px;
+    background: none;
+    transition: box-shadow 0.5s, transform 0.5s;
+    will-change: box-shadow, transform;
+}
+
+.check:hover{
+    box-shadow: 5px 5px 0px rgb(25, 18, 99);
+    transform: translate(-3px, -3px);
+}
+.green{
+    background-color: #8DDE8C;
+}
+.red{
+    background-color: #FA8273;
+}

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import s from './Shulte.module.css'
 import getShulteMatrix from './getShulteMatrix'
 
-export default function Shulte({componentComplexity}) {
+export default function Shulte({componentComplexity, gameID}) {
     const complexityObj = {
         'Легко': 1,
         'Средне': 2,
@@ -13,7 +13,7 @@ export default function Shulte({componentComplexity}) {
     useEffect(() => {
         matrix.splice()
         setMatrix(getShulteMatrix(value))
-    }, [value])
+    }, [value, gameID])
     useEffect(() => setValue(complexityObj[componentComplexity]),[componentComplexity])
     console.log(matrix.length)
     return (

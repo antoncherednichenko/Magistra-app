@@ -46,7 +46,7 @@ function Game({gameSettings, Game}) {
             className={s.container}>
               
                     {gameArray.map((game, index) => (
-                       <GameCard complexity={complexity}>
+                       <GameCard key={game + index} complexity={complexity}>
                             {<Game />}
                        </GameCard>
                     ))}

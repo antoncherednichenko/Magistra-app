@@ -9,16 +9,21 @@ export default function getSolve(complexity) {
     }
     const index = getIndex()
     if (complexity === 2) {
+        simbols = ['*']
+        min = 2
         max = 10
-        simbols.push('*')
     }
     if (complexity === 3) {
         max = 100
+        simbols.push('/')
     }
     const first = randomInteger(min, max)
     const second = randomInteger(min, max)
     const simbol = simbols[randomInteger(0, simbols.length)]
     const answer = eval(`${first}${simbol}${second}`)
+    if(complexity === 3 && simbol === '/' && first % second !== 0) {
+        return getSolve(complexity)
+    } 
     res.solve.push(first)
     res.solve.push(simbol)
     res.solve.push(second)

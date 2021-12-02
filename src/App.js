@@ -11,6 +11,8 @@ import Shulte from './Components/Math/Shulte/Shulte';
 import { connect } from 'react-redux';
 import Solve from './Components/Math/Solve/Solve';
 import Maze from './Components/Math/Maze/Maze'
+import Rusleng from './Rusleng/Resleng';
+import Remember from './Components/Math/Remember/Remember';
 
 
 function App({gameSettings}) {
@@ -20,10 +22,11 @@ function App({gameSettings}) {
   <Routes>
     <Route exact path={'/'} element={<Main />} />
     <Route exact path={'/math'} element={<Math />} />
-    <Route exact path={'/russian_leng'} element={<Math />} />
+    <Route exact path={'/russian_leng'} element={<Rusleng />} />
     <Route exact path={'/maze'} element={<Game Game={Maze} />} />
     <Route exact path={'/table_shulte'} element={<Game Game={Shulte} />} />
     <Route exact path={'/solve'} element={<Game Game={Solve} />} />
+    <Route exact path={'/remember'} element={<Game Game={Remember} />} />
   </Routes>
 </BrowserRouter>
   )

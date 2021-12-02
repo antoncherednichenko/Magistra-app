@@ -7,7 +7,7 @@ function randomInteger(min, max) {
     return Math.floor(Math.random() * (max - min) + min)
   }
 
-function Maze({componentComplexity}) {
+function Maze({componentComplexity, gameID}) {
     const complexityObj = {
         'Легко': 25,
         'Средне': 35,
@@ -19,7 +19,7 @@ function Maze({componentComplexity}) {
     useEffect(() => {
         matrix.splice()
         setMatrix(createMaze(value))
-    }, [value])
+    }, [value, gameID])
     useEffect(() => setValue(complexityObj[componentComplexity]), [componentComplexity])
     return (
         <>

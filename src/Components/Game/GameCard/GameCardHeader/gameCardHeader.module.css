@@ -9,13 +9,13 @@
     display:flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 75%;
+    max-width: 90%;
     width: 100%;
     margin: 0 auto;
     padding: 5px 0;
 }
 .namePlace{
-    max-width: 45%;
+    max-width: 38%;
     width: 100%;
     border: none;
     outline: none;
@@ -64,4 +64,18 @@
 .customSelect{
     width: 50px;
     cursor: pointer;
+}
+.update{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background: none;
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    transition: transform 0.8s;
+}
+.update:hover{
+    transform: skew(5deg, 5deg) rotate(0.5turn);
 }

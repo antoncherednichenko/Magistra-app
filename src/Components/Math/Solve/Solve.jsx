@@ -4,20 +4,62 @@ import getSolve from './getSolve'
 import {useLocation } from "react-router-dom"
 import s from './Solve.module.css'
 
-function Solve({gameSettings}) {
-    const [complexity, setComplexity] = useState(gameSettings.complexity)
-    const [solve, setSolve] = useState(getSolve(complexity))
-    const history = useLocation()
+function Solve({ componentComplexity, gameID }) {
+    const complexityObj = {
+        'Легко': 1,
+        'Средне': 2,
+        'Сложно': 3
+    }
+    const [solve, setSolve] = useState(getSolve(complexityObj[componentComplexity]))
+    const [value, setValue] = useState(0)
+    const [count, setCount] = useState(0)
+    const [correct, setCorrect] = useState('default')
+    const checkAnswer = (e) => {
+        if (+value === solve.answer) {
+            setCorrect('correct')
+            setCount(count + 1)
+            setValue()
+            setTimeout(() =>{
+                setCorrect('default')
+                setSolve(getSolve(complexityObj[componentComplexity]))
+            }, 800)
+        } else {
+            setCorrect('uncorrect')
+            setValue(solve.answer)
+            setTimeout(() =>{
+                setCorrect('default')
+                setSolve(getSolve(complexityObj[componentComplexity]))
+                setValue()
+            }, 800)
+        }
+
+    }
+    useEffect(() => setSolve(getSolve(complexityObj[componentComplexity])), [
+        gameID,
+        componentComplexity
+    ])
     
-    console.log(history)
     return (
-        <div>
-            {solve.solve.map((el, index) => (
-                <span key={index}>{el}</span>
-            ))}
-            <button onClick={()=>(
-                setSolve(getSolve(complexity))
-            )} type='button'>update</button>
+        <div className={s.container}>
+            <div className={s.counter}>Счет: {count}</div>
+            <div className={s.wrapper}>
+                {solve.solve.map((el, index) => (
+                    <span key={index}>{el}</span>
+                ))}
+            </div>
+            <input
+            value={value}
+            placeholder='0' 
+            className={s.number} 
+            onChange={(e)=>setValue(e.target.value)} 
+            type='number'/>
+            <button
+            className={`
+                ${s.check}
+                ${correct === 'correct' ? s.green : ''}
+                ${correct === 'uncorrect' ? s.red : ''}
+            `} 
+            onClick={checkAnswer} type='button'>Проверить</button>
         </div>
     )
 }
