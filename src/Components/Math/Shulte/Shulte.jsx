@@ -15,7 +15,6 @@ export default function Shulte({componentComplexity, gameID}) {
         setMatrix(getShulteMatrix(value))
     }, [value, gameID])
     useEffect(() => setValue(complexityObj[componentComplexity]),[componentComplexity])
-    console.log(matrix.length)
     return (
         <div
         style ={{
@@ -27,7 +26,7 @@ export default function Shulte({componentComplexity, gameID}) {
                 row.map((el, index)=>(
                     <p 
                     className={s.item} 
-                    key={Math.random()}
+                    key={index + Math.random()}
                     >{el}</p> 
                 ))
             ))}

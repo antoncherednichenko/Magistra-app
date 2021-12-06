@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
 import getSolve from './getSolve'
-import {useLocation } from "react-router-dom"
 import s from './Solve.module.css'
 
 function Solve({ componentComplexity, gameID }) {
@@ -18,14 +17,12 @@ function Solve({ componentComplexity, gameID }) {
         if (+value === solve.answer) {
             setCorrect('correct')
             setCount(count + 1)
-            setValue()
             setTimeout(() =>{
                 setCorrect('default')
                 setSolve(getSolve(complexityObj[componentComplexity]))
             }, 800)
         } else {
             setCorrect('uncorrect')
-            setValue(solve.answer)
             setTimeout(() =>{
                 setCorrect('default')
                 setSolve(getSolve(complexityObj[componentComplexity]))
@@ -48,8 +45,7 @@ function Solve({ componentComplexity, gameID }) {
                 ))}
             </div>
             <input
-            value={value}
-            placeholder='0' 
+            placeholder='Ответ' 
             className={s.number} 
             onChange={(e)=>setValue(e.target.value)} 
             type='number'/>

@@ -1,38 +1,34 @@
 import { createStore } from 'redux'
-import Maze from '../Components/Math/Maze/Maze'
-import Shulte from '../Components/Math/Shulte/Shulte'
-import Solve from '../Components/Math/Solve/Solve'
 import reducer from './reducer'
 
 const initialState = {
     menuList: [
-        {id: 1, title: 'Математика', route: '/math'},
-        {id: 3, title: 'Русский язык', route: '/russian_leng'},
-        {id: 4, title: 'Английский язык', route: '#'}
+        {id: 1, title: 'Игры', route: '/games'},
+        {id: 2, title: 'Правила', route: '/rules'},
     ],
     mathCards: [
         {
-            id: <Maze />,
+            id: 1,
             title: 'ЛАБИРИНТЫ',
-            icon: '/img/labirint_animated.svg',
+            icon: '/img/labirint.svg',
             route: '/maze'
         },
         {
-            id: <Shulte />,
+            id: 2,
             title: 'ТАБЛИЦА ШУЛЬТЕ',
-            icon: './img/table_animated.svg',
+            icon: './img/table.svg',
             route: '/table_shulte'
         },
         {
-            id: <Solve />,
+            id: 3,
             title: 'РЕШИ ПРИМЕР',
-            icon: './img/primer_animated.svg',
+            icon: './img/primer.svg',
             route: '/solve'
         },
         {
             id: 4,
             title: 'ЗАПОМНИ И ПОВТОРИ',
-            icon: './img/memory_animated.svg',
+            icon: './img/memory.svg',
             route: '/remember'
         },
     ],
@@ -42,7 +38,32 @@ const initialState = {
         game: '',
         route: '',
     },
-    bgColor: '#fff'
+    bgColor: '#fff',
+    rules: {
+        'maze-rule': {
+            title: 'ЛАБИРИНТЫ',
+            animation: '/img/labirint_animated.svg',
+            description:`Пройди сначала взглядом от зеленой 
+                        до красной точки, а потом соедени линией`
+        },
+        'table_shulte-rule': {
+            title: 'ТАБЛИЦА ШУЛЬТЕ',
+            animation: './img/table_animated.svg',
+            description:`Найди по порядку и произнеси в слух
+                        все числа начиная с единицы`
+        },
+        'solve-rule': {
+            title: 'РЕШИ ПРИМЕР',
+            animation: './img/primer_animated.svg',
+            description:`Впиши в поле ответа какого числа нехватает,
+                        чтобы равенство стало верным`
+        },
+        'remember-rule': {
+            title: 'ЗАПОМНИ И ПОВТОРИ',
+            animation: './img/memory_animated.svg',
+            description:`Запомни какие плитки загорались и попробую указать на них`
+        }
+    }
 }
 
 export default createStore(reducer, initialState)
