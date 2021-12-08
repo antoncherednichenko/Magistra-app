@@ -122,5 +122,32 @@
     justify-content: center;
     align-items: center;
 }
+.burger{
+    display: none;
+    border: none;
+    cursor: pointer;
+    background: none;
+}
 
+
+@media(max-width: 850px) {
+    .logo{
+        font-size: 25px;
+    }
+}
+@media(max-width: 730px){
+    .header{
+        display: flex;
+        justify-content: flex-end;
+        position: relative;
+        padding: 15px 10px;
+    }
+    .container{
+        display: none;
+        position: absolute;
+    }
+    .burger{
+        display: block;
+    }
+}
   

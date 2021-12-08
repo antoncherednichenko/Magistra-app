@@ -1,19 +1,10 @@
 import { useEffect } from 'react'
 import s from './girl.module.css'
-import KUTE from 'kute.js'
 
 export default function Girl(props){
-    // useEffect(() => (
-    //     KUTE.fromTo(
-    //         s.hair,
-    //         {path: `#${s.hair}`},
-    //         {path: `#${s.hairs}`},
-    //         {repeat: 999, duration: 3000, yoyo: true}
-    //     ).start()
-    // ))
     return(
         <>
-<svg className={props.pos} width="211" height="481" viewBox="0 0 211 481" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg className={`${props.pos} ${s.girl}`} width="211" height="481" viewBox="0 0 211 481" fill="none" xmlns="http://www.w3.org/2000/svg">
     <g id="Vector">
         <path id="Vector_2" d="M5.28151 182.079C4.37989 185.406 -10.046 265.72 14.7485 340.331C18.8058 341.282 18.355 329.401 18.355 329.401L13.8469 227.226L16.1009 188.733L5.28151 182.079Z" fill="#DE8E68"/>
         <path id="Vector_3" d="M72.9031 481H29.1746C29.1746 481 14.2979 318.946 14.2979 315.62C17.0027 318.471 16.5519 319.421 27.8221 322.748C34.5843 330.352 82.3701 456.763 82.3701 456.763L72.9031 481Z" fill="#56CAD8"/>

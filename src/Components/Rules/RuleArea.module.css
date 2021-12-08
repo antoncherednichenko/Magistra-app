@@ -11,14 +11,20 @@
     width: 100%;
     box-shadow: 0px 0px 30px rgb(0 0 0 / 25%);
     border-radius: 10px;
-    padding: 10px;
+    padding: 30px 10px;
     position: absolute;
     top:0;
     left: 50%;
     transform: translateX(-50%) translateY(50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .item{
+    color: #191263;
+    font-size: 24px;
     width: 100%;
     text-align: center;
     padding: 10px;
@@ -26,13 +32,8 @@
     transition: background-color 0.5s;
     cursor: pointer;
 }
-.item:not(:last-child) {
+.li:not(:last-child) {
     margin-bottom: 20px;
-}
-.item a{
-    text-decoration: none;
-    width: 100%;
-    color: #191263
 }
 .item:hover{
     background-color: rgb(228, 227, 227);

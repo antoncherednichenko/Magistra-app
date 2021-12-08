@@ -17,8 +17,8 @@ import s from './RuleArea.module.css'
             <div className={s.container}>
                 <ul className={s.list} >
                     {rules.map(rule => (
-                        <li className={s.item} key={Date.now() * Math.random()}>
-                           <Link  to={`${rule.route}-rule`} type='button'> {rule.title}</Link>
+                        <li className={s.li}  key={Date.now() * Math.random()}>
+                           <Link className={s.item} to={`${rule.route}-rule`} type='button'> {rule.title}</Link>
                         </li>
                     ))}
                 </ul>

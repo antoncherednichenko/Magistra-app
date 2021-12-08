@@ -2,3 +2,12 @@
     position: absolute;
     right: 150px;
 }
+.girl{
+    display: block;
+}
+
+@media(max-width: 970px) {
+    .girl{
+        display: none;
+    }
+}

@@ -43,11 +43,11 @@ function Math({mathCards}){
                             />
                         ))}
                     </div>
-                    <div className={s.square}></div>
                     <div className={s.circle}></div>
                     <div className={s.triangle}></div>
+                    <img className={s.mathBush} src='./img/mathbush.svg' alt='bush illustration'/>
                 </div>
-                <img className={s.mathBush} src='./img/mathbush.svg' alt='bush illustration'/>
+                
             </div>
         </>
     )

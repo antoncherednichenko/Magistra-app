@@ -5,13 +5,14 @@
     overflow-x: hidden;
 }
 .container{
+    position: relative;
     padding: 0px 15px;
-    max-width: 80%;
+    width: 100%;
     margin: 0 auto;
 }
 .cardBar{
     position: relative;
-    width: 90%;
+    width: 80%;
     margin: 0 auto;
     padding: 50px 0 0 0;
     display: flex;
@@ -19,25 +20,15 @@
     justify-content: space-between;
     flex-wrap: wrap;
 }
-
-.square{
-    width: 111px;
-    height: 111px;
-    background-color: #B1E9DD;
-    z-index: 1;
-    position: fixed;
-    bottom: 20px;;
-    left: 130px;
-}
 .circle{
     width: 209px;
     height: 209px;
     background-color: #FED385;
     z-index: 1;
-    position: fixed;
+    position: absolute;
     border-radius: 50%;
-    bottom: 190px;
-    right: 510px;
+    bottom: 20%;
+    left: 35%;
 }
 .triangle{
     width: 0;
@@ -45,16 +36,34 @@
 	border-left: 68px solid transparent;
 	border-right: 68px solid transparent;
 	border-bottom: 136px solid #FACFCA;
-    position: fixed;
-    top: 150px;
-    left: 100px;
+    position: absolute;
+    top: 80px;
+    left: 75px;
     z-index: 1000;
 
 }
 .mathBush{
-    width: 20%;
     position: fixed;
-    bottom: -25px;
-    right: -20px;
+    bottom: -63px;
+    right: -58px;
     z-index: 1000;
+}
+
+@media(max-width: 860px) {
+    .cardBar {
+        flex-direction: column;
+        padding: 150px 0 0 0;
+    }
+    .triangle{
+        left: 75px;
+    }
+}
+
+@media(max-width: 630px) {
+    .triangle{
+        display: none;
+    }
+    .cardBar{
+        padding: 25px 0 25px 0;
+    }
 }

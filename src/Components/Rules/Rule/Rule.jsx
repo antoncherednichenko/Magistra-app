@@ -24,7 +24,7 @@ function Rule({rules}) {
                 </div>
                 <p className={s.description}>{rule.description}</p>
             </div>
-            <Link className={s.back} to={localStorage.getItem('prevPath')}>НАЗАД</Link>
+           <span className={s.back}><Link to={localStorage.getItem('prevPath')}>НАЗАД</Link></span>
         </div>
         </>
     )

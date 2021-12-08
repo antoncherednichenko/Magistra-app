@@ -24,7 +24,9 @@
     color: #191263;
 }
 .list{
-    width: 548px;
+    max-width: 548px;
+    width: 100%;
+    gap: 15px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -60,7 +62,18 @@
     z-index: -1;
     transition: transform 0.5s ease;
   }
-  
+  .burger{
+      display: none;
+      border: none;
+      cursor: pointer;
+      background: none;
+  }
+  .vis{
+      display: flex;
+  }
+  .hide{
+      display: none;
+  }
 
 
 
@@ -85,3 +98,24 @@
     z-index: -1;
     transition: transform 0.5s ease;
   }
+
+
+  @media(max-width: 970px) {
+      .list{
+          position: absolute;
+          display: none;
+      }
+      .burger{
+          display: block;
+      }
+  }
+  @media(max-width: 470px) {
+      .logo{
+          font-size: 25px;
+      }
+  }
+  @media(max-width: 370px) {
+    .logo{
+        font-size: 20px;
+    }
+}

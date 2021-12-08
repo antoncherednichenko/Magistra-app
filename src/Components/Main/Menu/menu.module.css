@@ -9,8 +9,8 @@
 .shape{
     display: flex;
     align-items: center;
-    width: 895px;
-    height: 500px;
+    width: 60vw;
+    min-height: 500px;
     margin: 0 auto;
     background-color: #B1E9DD;
     border-radius: 289px 0px 0px 289px;
@@ -18,7 +18,8 @@
     
 }
 .list{
-    width: 434px;
+    max-width: 434px;
+    width: 55%;
     margin: 0 auto;
     z-index: 100;
 }
@@ -75,4 +76,34 @@
     bottom: 7px;
     left: 0;
     z-index: 100;
+}
+
+@media(max-width: 970px) {
+    .shape{
+        border-radius: 0px 0px 0px 0px;
+        width: 80vw;
+    }
+    .bush{
+        bottom: 0px;
+        left: -80px;
+    }
+    .list{
+        width: 80%;
+    }
+}
+@media(max-width: 510px) {
+    .bush{
+        width: 300px;
+        height: 200px;
+        bottom: 0px;
+        left: -105px;
+    }
+    .circle{
+        right: -20px;
+    }
+}
+@media(max-width: 510px){
+    .squer{
+        left: 20px;
+    }
 }
