@@ -1,0 +1,12 @@
+.burger{
+    display: block;
+    border: none;
+    cursor: pointer;
+    background: none;
+}
+
+@media(min-width: 970px) {
+    .burger {
+        display: none;
+    }
+}

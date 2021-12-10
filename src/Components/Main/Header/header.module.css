@@ -62,12 +62,7 @@
     z-index: -1;
     transition: transform 0.5s ease;
   }
-  .burger{
-      display: none;
-      border: none;
-      cursor: pointer;
-      background: none;
-  }
+  
   .vis{
       display: flex;
   }
