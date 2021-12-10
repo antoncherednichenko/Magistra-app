@@ -38,3 +38,9 @@
 .item:hover{
     background-color: rgb(228, 227, 227);
 }
+
+@media(max-width: 450px) {
+    .list {
+        width:95vw;
+    }
+}
