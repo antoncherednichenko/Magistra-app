@@ -4,8 +4,12 @@
     padding: 25px 10px;
     margin: 0 auto;
     display: grid;
-    grid-gap: 10px;
-    grid-template-rows: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fit, 350px);
+    grid-template-rows: repeat(3, 350px);
+    width: 100%;
+    max-width: 100%;
+    justify-content: center;
+    gap: 80px;
   }
   
   .container::after {

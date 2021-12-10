@@ -1,4 +1,6 @@
 .gameCard{
+    max-width: 350px;
+    justify-self: center;
     width: 100%;
     background-color: #fff;
 }
