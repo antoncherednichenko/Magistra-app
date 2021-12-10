@@ -2,8 +2,15 @@
     position: absolute;
 }
 
-@media(max-width: 420px) {
-    .wrapper {
+.boy{
+    display: block;
+}
+
+@media(max-width: 840px) {
+    .boy {
+        display: none;
+    }
+    .wrapper{
         display: none;
     }
 }
