@@ -14,7 +14,7 @@
     position: relative;
     width: 80%;
     margin: 0 auto;
-    padding: 50px 0 0 0;
+    padding: 25px 0;
     display: flex;
     gap: 50px;
     justify-content: space-between;
@@ -65,5 +65,13 @@
     }
     .cardBar{
         padding: 25px 0 25px 0;
+    }
+    .mathBush{
+        width: 35vw;
+    }
+}
+@media(max-width: 530px) {
+    .mathBush{
+        width: 55vw;
     }
 }

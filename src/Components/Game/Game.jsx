@@ -20,9 +20,7 @@ function Game({gameSettings, Game}) {
             SetGameArray(prev => prev.concat(Game))
         }
     }, [windows])
-    const template =  `repeat(${windows}, minmax(0, 1fr))`
-    const dispatch = store.dispatch
-
+    const template =  `repeat(${windows}, minmax(350px, 1fr))`
     const changeComplexity = value => (
         setComplexity(value)
     )
@@ -40,7 +38,6 @@ function Game({gameSettings, Game}) {
             />
             <div
             style={{
-                width: `${windows === 1?'35%': (windows === 2?'70%':'100%')}`,
                 gridTemplateColumns:`${template}`
             }} 
             className={s.container}>
