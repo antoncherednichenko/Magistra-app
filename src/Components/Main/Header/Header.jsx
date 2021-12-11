@@ -2,8 +2,16 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import Burger from '../../Burger/Burger'
 import s from './header.module.css'
+import Nav from './Nav/Nav'
 
 export default function Header(){
+    const[menuArr, setMenuArr] = useState([
+        {link:'https://magistra-do.ru/kursy', title: 'КУРСЫ' },
+        {link:'https://magistra-do.ru/programmy', title: 'ПРОГРАММЫ' },
+        {link:'https://magistra-do.ru/onlajn-shkola', title: 'ОНЛАЙН-ШКОЛА' },
+    ])
+    const [isVisible, setIsVisible] = useState(false)
+    const burgerHandleChange = () => setIsVisible(!isVisible)
     return (
         <>
             <header className={s.header}>
@@ -11,20 +19,13 @@ export default function Header(){
                     <Link to='/' className={s.logo}>Magistra games</Link>
                     <nav
                     className={s.nav}>
-                        <ul
-                        className={s.list}>
-                            <li className={s.item}>
-                                <a href='https://magistra-do.ru/kursy' target='_blank'>КУРСЫ</a>
-                            </li>
-                            <li className={s.item}>
-                                <a href='https://magistra-do.ru/programmy' target='_blank'>ПРОГРАММЫ</a>
-                                </li>
-                            <li className={s.item}>
-                            <a href='https://magistra-do.ru/onlajn-shkola' target='_blank'>ОНЛАЙН-ШКОЛА</a>
-                            </li>
-                        </ul>
+                        <Nav 
+                            array={menuArr}
+                            show={isVisible} 
+                        />
                         <Burger
-                            className={s.burgerBtn} 
+                            className={s.burgerBtn}
+                            change={burgerHandleChange}
                         />
                     </nav>
                 </div>

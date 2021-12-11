@@ -55,7 +55,7 @@ const initialState = {
         'solve-rule': {
             title: 'РЕШИ ПРИМЕР',
             animation: './img/primer_animated.svg',
-            description:`Впиши в поле ответа какого числа нехватает,
+            description:`Впиши в поле ответа какого числа не хватает,
                         чтобы равенство стало верным`
         },
         'remember-rule': {
